@@ -19,11 +19,16 @@ def convertir_cadena_a_entero():
 
 # Función para convertir texto a flotante y multiplicar por 2
 def convertir_texto_a_flotante():
-    texto = input("Ingrese un número: ")
-    numero_flotante = float(texto)
-    resultado = numero_flotante * 2
-    print(f"El resultado de multiplicar {numero_flotante} por 2 es {resultado}.")
-
+    try:
+        texto = input("Ingrese un número: ")
+        numero_flotante = float(texto)
+        if numero_flotante < 0:
+            print("El número debe ser positivo.")
+        else:
+            resultado = numero_flotante * 2
+            print(f"El resultado de multiplicar {numero_flotante} por 2 es {resultado}.")
+    except ValueError:
+        print("Error: Debe ingresar un número válido.")
 
 # Función para verificar si una cadena es un número
 def es_numero(cadena):

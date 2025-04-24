@@ -2,9 +2,12 @@
 
 # Función para saludo personalizado
 def saludo_personalizado():
-    nombre = input("Ingrese su nombre: ")
-    edad = input("Ingrese su edad: ")
-    print(f"Hola {nombre}, tienes {edad} años.")
+    try:
+        nombre = input("Ingrese su nombre: ")
+        edad = int(input("Ingrese su edad: "))
+        print(f"Hola {nombre}, tienes {edad} años.")
+    except ValueError:
+        print("Error: La edad debe ser un número entero.")
 
 
 # Función para comida y color favorito
@@ -16,5 +19,11 @@ def comida_color_favorito():
 
 # Función para calcular el doble y triple de un número
 def doble_triple():
-    numero = float(input("Ingrese un número: "))
-    print(f"El doble de {numero} es {numero * 2} y el triple es {numero * 3}.")
+    try:
+        numero = float(input("Ingrese un número: "))
+        if numero < 0:
+            print("El número debe ser positivo.")
+        else:
+            print("El doble de", numero, "es", numero * 2, "y el triple es", numero * 3)
+    except ValueError:
+        print("Error: El número debe ser un valor numérico.")
